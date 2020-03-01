@@ -4,11 +4,13 @@ import rest.RestClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+
 public class GUI extends JFrame implements ActionListener {
     private JPanel panel;
     private JButton searchButton;
@@ -22,11 +24,13 @@ public class GUI extends JFrame implements ActionListener {
         searchButton.addActionListener(this);
         list = new JList<>(listModel);
     }
+
     private void initFrame() {
         this.setContentPane(panel);
         this.setSize(500, 500);
         this.setVisible(true);
     }
+
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == searchButton) {
@@ -45,6 +49,7 @@ public class GUI extends JFrame implements ActionListener {
                         System.out.println("blad serwera");
                     }
                 }
+
                 @Override
                 public void onFailure(Call<Result> call, Throwable throwable) {
                     System.out.println("blad w stylu timeout/blad serializacji itp, czyli blad u nas");
